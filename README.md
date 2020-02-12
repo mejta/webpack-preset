@@ -18,7 +18,7 @@ import { wordpressReact } from 'webpack-preset';
 
 export default wordpressReact({
   entry: {
-    app: './assets/theme.js',
+    app: './assets/app.js',
   },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -27,4 +27,12 @@ export default wordpressReact({
     jsonpFunction: 'myAppJsonp',
   },
 });
+```
+
+4. Add public path in your `./assets/app.js` file
+
+```js
+__webpack_public_path__ = '/wp-content/plugins/yourpluginname/build/';
+
+// rest of the file
 ```
