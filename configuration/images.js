@@ -1,12 +1,12 @@
-import imageminGifsicle from 'imagemin-gifsicle';
-import imageminMozjpeg from 'imagemin-mozjpeg';
-import imageminPngquant from 'imagemin-pngquant';
-import imageminSvgo from 'imagemin-svgo';
+const imageminGifsicle = require('imagemin-gifsicle');
+const imageminMozjpeg = require('imagemin-mozjpeg');
+const imageminPngquant = require('imagemin-pngquant');
+const imageminSvgo = require('imagemin-svgo');
 
 const { NODE_ENV } = process.env;
 const isProduction = NODE_ENV === 'production';
 
-export default ({ filename = '[name].[contenthash].[ext]' }) => ({
+module.exports = ({ filename = '[name].[contenthash].[ext]' }) => ({
   module: {
     rules: [
       {

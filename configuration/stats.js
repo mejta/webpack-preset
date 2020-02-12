@@ -1,4 +1,4 @@
-export default () => ({
+module.exports = () => ({
   stats: {
     children: false,
     chunks: false,

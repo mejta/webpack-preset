@@ -1,4 +1,4 @@
-export default ({ filename = '[name].[contenthash].[ext]' }) => ({
+module.exports = ({ filename = '[name].[contenthash].[ext]' }) => ({
   module: {
     rules: [
       {

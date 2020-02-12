@@ -1,6 +1,6 @@
-import LiveReloadPlugin from 'webpack-livereload-plugin';
+const LiveReloadPlugin = require('webpack-livereload-plugin');
 
-export default () => ({
+module.exports = () => ({
   plugins: [
     new LiveReloadPlugin({
       appendScriptTag: true,

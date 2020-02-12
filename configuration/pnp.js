@@ -1,6 +1,6 @@
-import PnpWebpackPlugin from 'pnp-webpack-plugin';
+const PnpWebpackPlugin = require('pnp-webpack-plugin');
 
-export default () => ({
+module.exports = () => ({
   resolve: {
     plugins: [PnpWebpackPlugin],
   },

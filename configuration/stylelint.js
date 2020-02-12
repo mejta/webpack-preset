@@ -1,7 +1,7 @@
-import StylelintWebpackPlugin from 'stylelint-webpack-plugin';
-import stylelintFormatterPretty from 'stylelint-formatter-pretty';
+const StylelintWebpackPlugin = require('stylelint-webpack-plugin');
+const stylelintFormatterPretty = require('stylelint-formatter-pretty');
 
-export default () => ({
+module.exports = () => ({
   plugins: [
     new StylelintWebpackPlugin({
       formatter: stylelintFormatterPretty,

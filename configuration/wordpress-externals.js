@@ -1,4 +1,4 @@
-export default () => ({
+module.exports = () => ({
   externals: {
     'jquery': 'jQuery',
     'react': 'React',

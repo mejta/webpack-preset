@@ -1,10 +1,7 @@
-import path from 'path';
-import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
-import notifier from 'node-notifier';
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const notifier = require('node-notifier');
 
-var icon = path.join(__dirname, '../icon.png');
-
-export default () => ({
+module.exports = () => ({
   plugins: [
     new FriendlyErrorsWebpackPlugin({
       onErrors: (severity, errors) => {
@@ -16,7 +13,6 @@ export default () => ({
           title: 'Webpack error',
           message: severity + ': ' + error.name,
           subtitle: error.file || '',
-          icon,
         });
       }
     }),

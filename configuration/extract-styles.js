@@ -1,9 +1,9 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const { NODE_ENV } = process.env;
 const isDevelopment = NODE_ENV === 'development';
 
-export default ({
+module.exports = ({
   modules = false,
   filename = isDevelopment ? '[name].css' : '[name].[contenthash].css',
 }) => {

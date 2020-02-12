@@ -1,6 +1,6 @@
-import WebpackManifestPlugin from 'webpack-manifest-plugin';
+const WebpackManifestPlugin = requie('webpack-manifest-plugin');
 
-export default ({ filename = 'assets-manifest.json' }) => ({
+module.exports = ({ filename = 'assets-manifest.json' }) => ({
   plugins: [
     new WebpackManifestPlugin({
       fileName: filename,

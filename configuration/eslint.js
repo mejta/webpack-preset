@@ -1,6 +1,6 @@
-import eslintCodeframeFormatter from 'eslint-codeframe-formatter';
+const eslintCodeframeFormatter = require('eslint-codeframe-formatter');
 
-export default () => ({
+module.exports = () => ({
   module: {
     rules: [
       {
