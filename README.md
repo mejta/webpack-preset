@@ -8,6 +8,8 @@ Includes presets for:
 
 ## Usage: WordPress with React (wordpressReact)
 
+The preset contains code splitting, therefore you must specify public path so that the JS knows, from where load additional files.
+
 1. Add the dependency: `yarn add -D webpack webpack-cli https://github.com/mejta/webpack-preset.git#master`
 2. Add config for `babel`, `eslint`, `postcss`, `stylelint`
 3. Create `webpack.config.js`
@@ -29,10 +31,21 @@ export default wordpressReact({
 });
 ```
 
-4. Add public path in your `./assets/app.js` file
+4. Enqueue the file in your plugin or theme
+
+```php
+add_action('wp_enqueue_scripts', 'my_enqueue_scripts');
+function my_enqueue_scripts() {
+  wp_enqueue_script('app-vendor', 'https://yoursite/url-to-vendors~app.js', ['react', 'react-dom'], false, true);
+  wp_enqueue_script('app-main', 'https://yoursite/url-to-app.js', ['app-vendor'], false, true);
+  wp_localize_script('app-main', 'AppPublicPath', 'https://yoursite/url-to-build-folder/');
+}
+```
+
+5. Add public path in your `./assets/app.js` file
 
 ```js
-__webpack_public_path__ = '/wp-content/plugins/yourpluginname/build/';
+__webpack_public_path__ = window.AppPublicPath;
 
 // rest of the file
 ```
