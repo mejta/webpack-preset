@@ -34,11 +34,17 @@ export default wordpressReact({
 4. Enqueue the file in your plugin or theme
 
 ```php
+define('MY_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('MY_PLUGIN_DIR', __DIR__);
+
 add_action('wp_enqueue_scripts', 'my_enqueue_scripts');
 function my_enqueue_scripts() {
-  wp_enqueue_script('app-vendor', 'https://yoursite/url-to-vendors~app.js', ['react', 'react-dom'], false, true);
-  wp_enqueue_script('app-main', 'https://yoursite/url-to-app.js', ['app-vendor'], false, true);
-  wp_localize_script('app-main', 'AppPublicPath', 'https://yoursite/url-to-build-folder/');
+  $assets = json_decode(file_get_contents(MY_PLUGIN_DIR . '/build/assets-manifest.json'), true);
+  $buildUrl = MY_PLUGIN_URL . 'build/';
+  
+  wp_enqueue_script('app-vendor', $buildUrl . $assets['vendors~app.js'], ['react', 'react-dom'], false, true);
+  wp_enqueue_script('app-main', $buildUrl . $assets['app.js'], ['app-vendor'], false, true);
+  wp_localize_script('app-main', 'AppPublicPath', $buildUrl);
 }
 ```
 
