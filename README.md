@@ -8,7 +8,7 @@ Includes presets for:
 
 ## Usage: WordPress with React (wordpressReact)
 
-The preset contains code splitting, therefore you must specify public path so that the JS knows, from where load additional files.
+The preset contains code splitting, therefore you must specify public path so that the JS knows, from where load additional files. All the generated file names are stored in `assets-manifest.json` file in the build folder. From that file you can get the actual path/url to your files.
 
 1. Add the dependency: `yarn add -D webpack webpack-cli https://github.com/mejta/webpack-preset.git#master`
 2. Add config for `babel`, `eslint`, `postcss`, `stylelint`
