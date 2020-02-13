@@ -55,3 +55,13 @@ __webpack_public_path__ = window.AppPublicPath;
 
 // rest of the file
 ```
+
+6. Use CSS Modules
+
+The support for CSS modules is turned on, so just use `*.module.css` extension when needed.
+
+```jsx
+import style from 'SomeComponent.module.css';
+const SomeComponent = () => <div className={style.main} />
+export default SomeComponent;
+```
