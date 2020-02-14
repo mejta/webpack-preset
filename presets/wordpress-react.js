@@ -1,4 +1,5 @@
 const merge = require('webpack-merge');
+const base = require('../configuration/base');
 const pnp = require('../configuration/pnp');
 const devtool = require('../configuration/devtool');
 const stats = require('../configuration/stats');
@@ -19,6 +20,7 @@ const { NODE_ENV } = process.env;
 const isDevelopment = NODE_ENV === 'development';
 
 const config = merge(
+  base(),
   pnp(),
   devtool(),
   stats(),
